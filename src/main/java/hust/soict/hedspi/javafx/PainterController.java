@@ -1,6 +1,7 @@
 package hust.soict.hedspi.javafx;
 
 import javafx.event.ActionEvent;
+import javafx.scene.control.ColorPicker;
 import javafx.scene.control.RadioButton;
 import javafx.scene.input.MouseEvent;
 import javafx.event.ActionEvent;
@@ -13,6 +14,7 @@ import javafx.scene.shape.Circle;
 
 
 public class PainterController {
+    public ColorPicker selectColor;
     @FXML
     private Pane drawingAreaPane;
     @FXML
@@ -27,8 +29,12 @@ public class PainterController {
 
     @FXML
     void drawingAreaMouseDragged(MouseEvent event) {
-        Color color = btPen.isSelected() ? Color.BLACK : Color.WHITE;
-        Double radius = btPen.isSelected() ? 3.0 : 6.0;
+        Color color = Color.WHITE;
+        Double radius = 6.0;
+        if(btPen.isSelected()) {
+            color = selectColor.getValue();
+            radius = 3.0;
+        }
         Circle circle = new Circle(event.getX(), event.getY(), radius, color);
         drawingAreaPane.getChildren().add(circle);
     }
