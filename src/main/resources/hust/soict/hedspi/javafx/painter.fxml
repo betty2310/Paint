@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ColorPicker?>
 <?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
@@ -30,6 +31,7 @@
                               <ColorPicker fx:id="selectColor" prefHeight="30.0" prefWidth="49.0" promptText="Select color" style="-fx-background-color: transparent;" />
                            </children>
                         </HBox>
+                        <Slider fx:id="thinkPen" blockIncrement="1.0" majorTickUnit="2.0" max="10.0" minorTickCount="1" showTickLabels="true" value="5.0" />
                         <RadioButton fx:id="btErase" mnemonicParsing="false" onAction="#btEraserPressed" text="Eraser" />
                      </children>
                   </VBox>
