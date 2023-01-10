@@ -1,4 +1,4 @@
-package hust.soict.hedspi.javafx;
+package painter;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

@@ -10,8 +10,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hust.soict.hedspi.javafx.PainterController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="painter.PainterController">
     <padding>
         <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
     </padding>
@@ -28,7 +29,10 @@
                         <HBox prefHeight="13.0" prefWidth="105.0">
                            <children>
                               <RadioButton fx:id="btPen" mnemonicParsing="false" onAction="#btPenPressed" selected="true" text="Pen" />
-                              <ColorPicker fx:id="selectColor" prefHeight="30.0" prefWidth="49.0" promptText="Select color" style="-fx-background-color: transparent;" />
+                              <ColorPicker fx:id="selectColor" prefHeight="30.0" prefWidth="49.0" promptText="Select color" style="-fx-background-color: transparent;">
+                                 <value>
+                                    <Color />
+                                 </value></ColorPicker>
                            </children>
                         </HBox>
                         <Slider fx:id="thinkPen" blockIncrement="1.0" majorTickUnit="2.0" max="10.0" minorTickCount="1" showTickLabels="true" value="5.0" />

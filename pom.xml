@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>hust.soict.hedspi</groupId>
-    <artifactId>javafx</artifactId>
+    <artifactId>painter</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>javafx</name>
 
@@ -60,7 +60,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>hust.soict.hedspi.javafx/hust.soict.hedspi.javafx.Painter</mainClass>
+                            <mainClass>hust.soict.hedspi.javafx/painter.Painter</mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
                             <jlinkImageName>app</jlinkImageName>

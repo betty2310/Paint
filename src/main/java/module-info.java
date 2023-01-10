@@ -3,6 +3,6 @@ module hust.soict.hedspi.javafx {
     requires javafx.fxml;
 
 
-    opens hust.soict.hedspi.javafx to javafx.fxml;
-    exports hust.soict.hedspi.javafx;
+    opens painter to javafx.fxml;
+    exports painter;
 }
