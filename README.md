@@ -7,3 +7,5 @@
 - [x] thick?
 - [ ] shape like rectangle, circle or hexagon, triangle,etc
 - [ ] save image
+
+[Wiki](https://github.com/betty2310/Paint/wiki)
