@@ -2,19 +2,20 @@
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.canvas.Canvas?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.ColorPicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
@@ -24,16 +25,6 @@
     <padding>
         <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
     </padding>
-   <center>
-        <Pane fx:id="drawingAreaPane" onMouseDragged="#drawingAreaMouseDragged" prefHeight="659.0" prefWidth="1295.0" BorderPane.alignment="CENTER" />
-   </center>
-   <bottom>
-        <VBox maxHeight="1.7976931348623157E308" prefHeight="155.0" prefWidth="1344.0" spacing="8.0" BorderPane.alignment="CENTER">
-            <BorderPane.margin>
-                <Insets right="8.0" />
-            </BorderPane.margin>
-        </VBox>
-   </bottom>
    <top>
       <GridPane prefHeight="190.0" prefWidth="1352.0" vgap="10.0" BorderPane.alignment="CENTER">
         <columnConstraints>
@@ -46,7 +37,7 @@
          <children>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="77.0" text="Save">
+                  <Button fx:id="btSave" mnemonicParsing="false" prefHeight="31.0" prefWidth="77.0" text="Save">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -58,7 +49,7 @@
                         </FontAwesomeIconView>
                      </graphic>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="91.0" text="Open">
+                  <Button fx:id="btOpen" mnemonicParsing="false" prefHeight="31.0" prefWidth="91.0" text="Open">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -70,7 +61,7 @@
                         </FontAwesomeIconView>
                      </graphic>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="77.0" text="Help">
+                  <Button fx:id="btHelp" mnemonicParsing="false" prefHeight="31.0" prefWidth="77.0" text="Help">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -90,7 +81,7 @@
                <children>
                   <HBox prefHeight="143.0" prefWidth="203.0">
                      <children>
-                        <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="143.0" prefWidth="101.0" text="clear" textAlignment="JUSTIFY">
+                        <Button fx:id="btClear" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="143.0" prefWidth="101.0" text="clear" textAlignment="JUSTIFY">
                            <graphic>
                               <FontAwesomeIconView fill="#fc0000" glyphName="TIMES" size="50" wrappingWidth="36.677409172058105">
                                  <font>
@@ -104,7 +95,7 @@
                         </Button>
                         <VBox prefHeight="200.0" prefWidth="100.0">
                            <children>
-                              <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="75.0" prefWidth="103.0" text="undo">
+                              <Button fx:id="btUndo" contentDisplay="TOP" mnemonicParsing="false" prefHeight="75.0" prefWidth="103.0" text="undo">
                                  <graphic>
                                     <FontAwesomeIconView glyphName="UNDO" size="35" />
                                  </graphic>
@@ -112,7 +103,7 @@
                                     <Font size="15.0" />
                                  </font>
                               </Button>
-                              <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="53.0" prefWidth="100.0" text="redo" textAlignment="CENTER">
+                              <Button fx:id="btRedo" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="53.0" prefWidth="100.0" text="redo" textAlignment="CENTER">
                                  <graphic>
                                     <FontAwesomeIconView glyphName="ROTATE_RIGHT" size="35" wrappingWidth="39.578346252441406" />
                                  </graphic>
@@ -138,7 +129,7 @@
                      <children>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
                            <children>
-                              <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="73.0" text="pen" textAlignment="CENTER" />
+                              <ToggleButton fx:id="btPen" mnemonicParsing="false" onAction="#togglePen" prefHeight="25.0" prefWidth="68.0" text="pen" />
                               <ImageView fitHeight="66.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../icons/pen.png" />
@@ -184,4 +175,7 @@
          </children>
       </GridPane>
    </top>
+   <center>
+      <Canvas id="pen" fx:id="canvas" height="699.0" onMouseDragged="#setOnMouseDragged" onMousePressed="#setOnMousePressed" onMouseReleased="#setOnMouseReleased" width="1366.0" BorderPane.alignment="CENTER" />
+   </center>
 </BorderPane>
