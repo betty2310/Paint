@@ -1,0 +1,10 @@
+#pen {
+    -fx-background-color: white;
+}
+#pen:pressed {
+    -fx-background-color: green;
+    -fx-border-color: green;
+}
+#pen:hover {
+    -fx-background-color: gray;
+}
