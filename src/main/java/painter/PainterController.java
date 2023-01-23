@@ -1,53 +1,57 @@
 package painter;
 
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.scene.control.ColorPicker;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.Slider;
+import javafx.fxml.Initializable;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Button;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
+
+import java.net.URL;
+import java.util.ResourceBundle;
 
 
-public class PainterController {
-    public ColorPicker selectColor;
-    public Slider thinkPen;
-    @FXML
-    private Pane drawingAreaPane;
-    @FXML
-    private RadioButton btPen;
-    @FXML
-    private RadioButton btErase;
+public class PainterController implements Initializable {
+    public ToggleButton btPen;
+    private GraphicsContext gc;
+    public Button btSave;
+    public Button btOpen;
+    public Button btHelp;
+    public Button btClear;
+    public Button btUndo;
+    public Button btRedo;
+    public Canvas canvas;
 
-    @FXML
-    void clearButtonPressed(ActionEvent event) {
-        drawingAreaPane.getChildren().clear();
+    public void togglePen(ActionEvent actionEvent) {
     }
-
-    @FXML
-    void drawingAreaMouseDragged(MouseEvent event) {
-        Color color = Color.WHITE;
-        Double radius = 15.0;
-        if(btPen.isSelected()) {
-            color = selectColor.getValue();
-            double thick = thinkPen.getValue();
-            radius = thick;
-        }
-        Circle circle = new Circle(event.getX(), event.getY(), radius, color);
-        drawingAreaPane.getChildren().add(circle);
-    }
-
-    public void btPenPressed(ActionEvent actionEvent) {
+    public void setOnMousePressed(MouseEvent mouseEvent) {
         if (btPen.isSelected()) {
-            btErase.setSelected(false);
+            gc.setStroke(javafx.scene.paint.Color.BLACK);
+            gc.beginPath();
+            gc.lineTo(mouseEvent.getX(), mouseEvent.getY());
         }
     }
 
-    public void btEraserPressed(ActionEvent actionEvent) {
-        if(btErase.isSelected()) {
-            btPen.setSelected(false);
+    public void setOnMouseDragged(MouseEvent mouseEvent) {
+        if (btPen.isSelected()) {
+            gc.lineTo(mouseEvent.getX(), mouseEvent.getY());
+            gc.stroke();
         }
     }
+
+    public void setOnMouseReleased(MouseEvent mouseEvent) {
+            if (btPen.isSelected()) {
+                gc.lineTo(mouseEvent.getX(), mouseEvent.getY());
+                gc.stroke();
+                gc.closePath();
+            }
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        gc = canvas.getGraphicsContext2D();
+        gc.setLineWidth(1);
+    }
+
 }
