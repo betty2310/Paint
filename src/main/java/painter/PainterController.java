@@ -1,11 +1,15 @@
 package painter;
 
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
+import javafx.scene.Cursor;
+import javafx.scene.ImageCursor;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.control.ToggleButton;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 
@@ -34,6 +38,7 @@ public class PainterController implements Initializable {
     public void clearCanvas(ActionEvent actionEvent) {
         btPen.setSelected(false);
         btErase.setSelected(false);
+        canvas.setCursor(Cursor.DEFAULT);
         gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
     }
 
@@ -55,12 +60,14 @@ public class PainterController implements Initializable {
     }
     public void setOnMousePressed(MouseEvent mouseEvent) {
         if (btPen.isSelected()) {
+            canvas.setCursor(new ImageCursor(new Image(getClass().getResourceAsStream("/icons/pen.png"))));
             gc.setStroke(javafx.scene.paint.Color.BLACK);
             gc.setLineWidth(1);
             gc.beginPath();
             gc.lineTo(mouseEvent.getX(), mouseEvent.getY());
         }
         if(btErase.isSelected()) {
+            canvas.setCursor(new ImageCursor(new Image(getClass().getResourceAsStream("/icons/erase.png"))));
             gc.setStroke(Color.WHITE);
             gc.setLineWidth(10);
             gc.beginPath();
