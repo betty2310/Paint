@@ -11,11 +11,13 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
@@ -189,11 +191,29 @@
                      </children>
                   </VBox>
                </children>
+               <effect>
+                  <InnerShadow blurType="GAUSSIAN" height="1.0" offsetX="-3.0" offsetY="-3.0" radius="0.0" width="0.0">
+                     <color>
+                        <Color opacity="0.49808427691459656" />
+                     </color>
+                  </InnerShadow>
+               </effect>
             </HBox>
          </children>
       </GridPane>
    </top>
    <center>
-      <Canvas fx:id="canvas" height="699.0" onMouseDragged="#setOnMouseDragged" onMousePressed="#setOnMousePressed" onMouseReleased="#setOnMouseReleased" width="1366.0" BorderPane.alignment="CENTER" />
+      <StackPane prefHeight="663.0" prefWidth="1352.0" style="-fx-background-color: white; -fx-border-color: gray;" BorderPane.alignment="CENTER">
+         <children>
+            <Canvas fx:id="canvas" height="680.0" onMouseDragged="#setOnMouseDragged" onMousePressed="#setOnMousePressed" onMouseReleased="#setOnMouseReleased" width="1331.0">
+               <StackPane.margin>
+                  <Insets />
+               </StackPane.margin>
+            </Canvas>
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="10.0" left="5.0" right="5.0" top="20.0" />
+         </BorderPane.margin>
+      </StackPane>
    </center>
 </BorderPane>
