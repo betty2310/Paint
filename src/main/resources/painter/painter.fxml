@@ -203,7 +203,7 @@
       </GridPane>
    </top>
    <center>
-      <StackPane prefHeight="663.0" prefWidth="1352.0" style="-fx-background-color: white; -fx-border-color: gray;" BorderPane.alignment="CENTER">
+      <StackPane prefHeight="663.0" prefWidth="1352.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <children>
             <Canvas fx:id="canvas" height="680.0" onMouseDragged="#setOnMouseDragged" onMousePressed="#setOnMousePressed" onMouseReleased="#setOnMouseReleased" width="1331.0">
                <StackPane.margin>

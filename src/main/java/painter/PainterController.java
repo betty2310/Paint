@@ -32,6 +32,9 @@ public class PainterController implements Initializable {
     }
 
     public void clearCanvas(ActionEvent actionEvent) {
+        btPen.setSelected(false);
+        btErase.setSelected(false);
+        gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
     }
 
     public void undoCanvas(ActionEvent actionEvent) {
