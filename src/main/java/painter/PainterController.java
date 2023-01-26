@@ -1,6 +1,5 @@
 package painter;
 
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
@@ -63,41 +62,37 @@ public class PainterController implements Initializable {
     public void setOnMousePressed(MouseEvent mouseEvent) {
         if (btPen.isSelected()) {
             canvas.setCursor(new ImageCursor(new Image(getClass().getResourceAsStream("/icons/pen.png"))));
-            gc.setStroke(javafx.scene.paint.Color.BLACK);
-            gc.setLineWidth(1);
-            gc.beginPath();
-            gc.lineTo(mouseEvent.getX(), mouseEvent.getY() + 20);
+            drawOnMousePressed(Color.BLACK, 1, mouseEvent.getX(), mouseEvent.getY());
         }
         if (btErase.isSelected()) {
             canvas.setCursor(new ImageCursor(new Image(getClass().getResourceAsStream("/icons/erase.png"))));
-            gc.setStroke(Color.WHITE);
-            gc.setLineWidth(10);
-            gc.beginPath();
-            gc.lineTo(mouseEvent.getX(), mouseEvent.getY() + 20);
+            drawOnMousePressed(Color.WHITE, 10, mouseEvent.getX(), mouseEvent.getY());
         }
     }
 
     public void setOnMouseDragged(MouseEvent mouseEvent) {
-        if (btPen.isSelected()) {
-            gc.lineTo(mouseEvent.getX(), mouseEvent.getY() + 20);
-            gc.stroke();
-        }
-        if (btErase.isSelected()) {
-            gc.lineTo(mouseEvent.getX(), mouseEvent.getY() + 20);
-            gc.stroke();
-        }
+        drawOnMouseDragged(mouseEvent.getX(), mouseEvent.getY());
     }
 
     public void setOnMouseReleased(MouseEvent mouseEvent) {
-        if (btPen.isSelected()) {
-            gc.lineTo(mouseEvent.getX(), mouseEvent.getY() + 20);
-            gc.stroke();
-            gc.closePath();
-        }
-        if (btErase.isSelected()) {
-            gc.lineTo(mouseEvent.getX(), mouseEvent.getY() + 20);
-            gc.stroke();
-            gc.closePath();
-        }
+        drawOnMouseReleased(mouseEvent.getX(), mouseEvent.getY());
+    }
+
+    public void drawOnMousePressed(Color color, double width, double x, double y) {
+        gc.setStroke(color);
+        gc.setLineWidth(width);
+        gc.beginPath();
+        gc.lineTo(x, y + 20);
+    }
+
+    public void drawOnMouseDragged(double x, double y) {
+        gc.lineTo(x, y + 20);
+        gc.stroke();
+    }
+
+    public void drawOnMouseReleased(double x, double y) {
+        gc.lineTo(x, y + 20);
+        gc.stroke();
+        gc.closePath();
     }
 }
