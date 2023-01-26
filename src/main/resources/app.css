@@ -54,3 +54,15 @@
 .choice-box .menu-item:focused > .label {
     -fx-text-fill: white;
 }
+
+.slider {
+}
+
+.slider .track {
+    -fx-background-color: #E9ECEF;
+}
+
+.slider .thumb {
+    -fx-background-color: #F8F9FA;
+    -fx-backgroud-radius: 0;
+}
