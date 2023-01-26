@@ -44,56 +44,58 @@ public class PainterController implements Initializable {
 
     public void undoCanvas(ActionEvent actionEvent) {
     }
+
     public void redoCanvas(ActionEvent actionEvent) {
     }
 
     public void toggleErase(ActionEvent actionEvent) {
-        if(btErase.isSelected()) {
+        if (btErase.isSelected()) {
             btPen.setSelected(false);
         }
     }
 
     public void togglePen(ActionEvent actionEvent) {
-        if(btPen.isSelected()) {
+        if (btPen.isSelected()) {
             btErase.setSelected(false);
         }
     }
+
     public void setOnMousePressed(MouseEvent mouseEvent) {
         if (btPen.isSelected()) {
             canvas.setCursor(new ImageCursor(new Image(getClass().getResourceAsStream("/icons/pen.png"))));
             gc.setStroke(javafx.scene.paint.Color.BLACK);
             gc.setLineWidth(1);
             gc.beginPath();
-            gc.lineTo(mouseEvent.getX(), mouseEvent.getY());
+            gc.lineTo(mouseEvent.getX(), mouseEvent.getY() + 20);
         }
-        if(btErase.isSelected()) {
+        if (btErase.isSelected()) {
             canvas.setCursor(new ImageCursor(new Image(getClass().getResourceAsStream("/icons/erase.png"))));
             gc.setStroke(Color.WHITE);
             gc.setLineWidth(10);
             gc.beginPath();
-            gc.lineTo(mouseEvent.getX(), mouseEvent.getY());
+            gc.lineTo(mouseEvent.getX(), mouseEvent.getY() + 20);
         }
     }
 
     public void setOnMouseDragged(MouseEvent mouseEvent) {
         if (btPen.isSelected()) {
-            gc.lineTo(mouseEvent.getX(), mouseEvent.getY());
+            gc.lineTo(mouseEvent.getX(), mouseEvent.getY() + 20);
             gc.stroke();
         }
         if (btErase.isSelected()) {
-            gc.lineTo(mouseEvent.getX(), mouseEvent.getY());
+            gc.lineTo(mouseEvent.getX(), mouseEvent.getY() + 20);
             gc.stroke();
         }
     }
 
     public void setOnMouseReleased(MouseEvent mouseEvent) {
         if (btPen.isSelected()) {
-            gc.lineTo(mouseEvent.getX(), mouseEvent.getY());
+            gc.lineTo(mouseEvent.getX(), mouseEvent.getY() + 20);
             gc.stroke();
             gc.closePath();
         }
         if (btErase.isSelected()) {
-            gc.lineTo(mouseEvent.getX(), mouseEvent.getY());
+            gc.lineTo(mouseEvent.getX(), mouseEvent.getY() + 20);
             gc.stroke();
             gc.closePath();
         }
