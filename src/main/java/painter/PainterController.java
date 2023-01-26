@@ -33,7 +33,9 @@ public class PainterController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         gc = canvas.getGraphicsContext2D();
-        gc.setLineWidth(1);
+        gc.setLineWidth(0);
+        btPen.setSelected(false);
+        btErase.setSelected(false);
     }
 
     public void clearCanvas(ActionEvent actionEvent) {
@@ -73,11 +75,15 @@ public class PainterController implements Initializable {
     }
 
     public void setOnMouseDragged(MouseEvent mouseEvent) {
-        drawOnMouseDragged(mouseEvent.getX(), mouseEvent.getY());
+        if (btPen.isSelected() || btErase.isSelected()) {
+            drawOnMouseDragged(mouseEvent.getX(), mouseEvent.getY());
+        }
     }
 
     public void setOnMouseReleased(MouseEvent mouseEvent) {
-        drawOnMouseReleased(mouseEvent.getX(), mouseEvent.getY());
+        if (btPen.isSelected() || btErase.isSelected()) {
+            drawOnMouseReleased(mouseEvent.getX(), mouseEvent.getY());
+        }
     }
 
     public void drawOnMousePressed(Color color, double width, double x, double y) {
