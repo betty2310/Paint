@@ -7,6 +7,7 @@ import javafx.scene.ImageCursor;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
+import javafx.scene.control.ColorPicker;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
@@ -19,6 +20,7 @@ import java.util.ResourceBundle;
 public class PainterController implements Initializable {
     public ToggleButton btPen;
     public ToggleButton btErase;
+    public ColorPicker foregroundColor;
     private GraphicsContext gc;
     public Button btSave;
     public Button btOpen;
@@ -37,7 +39,7 @@ public class PainterController implements Initializable {
     public void clearCanvas(ActionEvent actionEvent) {
         btPen.setSelected(false);
         btErase.setSelected(false);
-        canvas.setCursor(Cursor.DEFAULT);
+        setImageCursor("default");
         gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
     }
 
@@ -62,7 +64,7 @@ public class PainterController implements Initializable {
     public void setOnMousePressed(MouseEvent mouseEvent) {
         if (btPen.isSelected()) {
             setImageCursor("pen");
-            drawOnMousePressed(Color.BLACK, 1, mouseEvent.getX(), mouseEvent.getY());
+            drawOnMousePressed(foregroundColor.getValue(), 1, mouseEvent.getX(), mouseEvent.getY());
         }
         if (btErase.isSelected()) {
             setImageCursor("erase");
