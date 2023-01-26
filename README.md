@@ -1,4 +1,4 @@
-![](assets/dora.png)
+![](assets/app.png)
 
 `Simple paint app 🎨.`
 
