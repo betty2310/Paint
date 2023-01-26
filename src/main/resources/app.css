@@ -1,10 +1,56 @@
-#pen {
+.toggle-button {
+    -fx-background-color: #E9ECEF;
+    -fx-text-fill: #212529;
+}
+
+.toggle-button:selected {
+    -fx-background-color: #CED4DA;
+}
+
+.button {
+    -fx-background-color: #E9ECEF;
+    -fx-text-fill: #212529;
+}
+
+.button:hover {
+    -fx-background-color: #DEE2E6;
+}
+
+.button:pressed {
+    -fx-background-color: #CED4DA;
+}
+
+.check-box .box {
+    -fx-background-color: #E9ECEF;
+    -fx-border-color: #DEE2E6;
+    -fx-border-radius: 3px;
+}
+
+.check-box:selected .mark {
+    -fx-background-color: #F8F9FA;
+}
+
+.check-box:selected .box {
+    -fx-background-color: #28a3f4;
+}
+
+.choice-box {
+    -fx-background-color: #E9ECEF;
+    -fx-border-radius: 3px;
+}
+
+.choice-box .context-menu {
     -fx-background-color: white;
 }
-#pen:pressed {
-    -fx-background-color: green;
-    -fx-border-color: green;
+
+.choice-box .menu-item:focused {
+    -fx-background-color: orange;
 }
-#pen:hover {
-    -fx-background-color: gray;
+
+.choice-box .menu-item > .label {
+    -fx-text-fill: black;
+}
+
+.choice-box .menu-item:focused > .label {
+    -fx-text-fill: white;
 }

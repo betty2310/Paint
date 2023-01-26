@@ -1,38 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import de.jensd.fx.glyphs.fontawesome.*?>
-<?import javafx.geometry.Insets?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.canvas.Canvas?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.Cursor?>
-<?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.*?>
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1368.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="painter.PainterController">
-    <padding>
-        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
-    </padding>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0"
+            prefWidth="1368.0" style="-fx-background-color: E9ECEF;" stylesheets="@../app.css"
+            xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="painter.PainterController">
+   <padding>
+      <Insets bottom="8.0" left="8.0" right="8.0" top="8.0"/>
+   </padding>
    <top>
       <GridPane prefHeight="190.0" prefWidth="1352.0" vgap="10.0" BorderPane.alignment="CENTER">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints maxHeight="74.0" minHeight="0.0" prefHeight="32.37906265258789" vgrow="SOMETIMES" />
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0"/>
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints maxHeight="74.0" minHeight="0.0" prefHeight="32.37906265258789" vgrow="SOMETIMES"/>
           <RowConstraints maxHeight="157.6209373474121" minHeight="0.0" prefHeight="157.6209373474121" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <HBox prefHeight="100.0" prefWidth="200.0">
+            <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
                <children>
                   <Button fx:id="btSave" mnemonicParsing="false" prefHeight="31.0" prefWidth="77.0" text="Save">
                      <font>
-                        <Font size="16.0" />
+                        <Font size="16.0"/>
                      </font>
                      <graphic>
                         <FontAwesomeIconView glyphName="SAVE">
                            <font>
-                              <Font size="15.0" />
+                              <Font size="15.0"/>
                            </font>
                         </FontAwesomeIconView>
                      </graphic>
@@ -51,69 +53,82 @@
                   </Button>
                   <Button fx:id="btHelp" mnemonicParsing="false" prefHeight="31.0" prefWidth="77.0" text="Help">
                      <font>
-                        <Font size="16.0" />
+                        <Font size="16.0"/>
                      </font>
                      <graphic>
                         <FontAwesomeIconView glyphName="QUESTION">
                            <font>
-                              <Font size="15.0" />
-                           </font></FontAwesomeIconView>
+                              <Font size="15.0"/>
+                           </font>
+                        </FontAwesomeIconView>
                      </graphic>
                   </Button>
                </children>
-            </HBox>
-            <HBox spacing="30.0" style="-fx-background-color: #fff; -fx-border-radius: 10%; -fx-background-radius: 10px;" GridPane.rowIndex="1">
                <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                  <Insets bottom="10.0"/>
+               </padding>
+            </HBox>
+            <HBox spacing="15.0"
+                  style="-fx-background-color: F8F9FA; -fx-background-radius: 10px; -fx-border-color: DEE2E6; -fx-border-radius: 10px;"
+                  GridPane.rowIndex="1">
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
                </padding>
                <children>
-                  <HBox prefHeight="143.0" prefWidth="203.0">
+                  <HBox prefHeight="143.0" prefWidth="203.0" spacing="5.0">
                      <children>
-                        <Button fx:id="btClear" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#clearCanvas" prefHeight="143.0" prefWidth="101.0" text="clear" textAlignment="JUSTIFY">
+                        <Button fx:id="btClear" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false"
+                                onAction="#clearCanvas" prefHeight="147.0" prefWidth="101.0" text="clear"
+                                textAlignment="JUSTIFY">
                            <graphic>
-                              <FontAwesomeIconView fill="#fc0000" glyphName="TIMES" size="50" wrappingWidth="36.677409172058105">
+                              <FontAwesomeIconView fill="#fc0000" glyphName="TIMES" size="50"
+                                                   wrappingWidth="36.677409172058105">
                                  <font>
-                                    <Font size="50.0" />
+                                    <Font size="50.0"/>
                                  </font>
                               </FontAwesomeIconView>
                            </graphic>
                            <font>
-                              <Font size="21.0" />
+                              <Font size="21.0"/>
                            </font>
                         </Button>
-                        <VBox prefHeight="200.0" prefWidth="100.0">
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0">
                            <children>
-                              <Button fx:id="btUndo" contentDisplay="TOP" mnemonicParsing="false" onAction="#undoCanvas" prefHeight="75.0" prefWidth="103.0" text="undo">
+                              <Button fx:id="btUndo" contentDisplay="TOP" mnemonicParsing="false" onAction="#undoCanvas"
+                                      prefHeight="75.0" prefWidth="100.0" text="undo">
                                  <graphic>
-                                    <FontAwesomeIconView glyphName="UNDO" size="35" />
+                                    <FontAwesomeIconView glyphName="UNDO" size="35"/>
                                  </graphic>
                                  <font>
-                                    <Font size="15.0" />
+                                    <Font size="15.0"/>
                                  </font>
                               </Button>
-                              <Button fx:id="btRedo" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#redoCanvas" prefHeight="53.0" prefWidth="100.0" text="redo" textAlignment="CENTER">
-                                 <graphic>
-                                    <FontAwesomeIconView glyphName="ROTATE_RIGHT" size="35" wrappingWidth="39.578346252441406" />
-                                 </graphic>
+                              <Button fx:id="btRedo" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false"
+                                      onAction="#redoCanvas" prefHeight="56.0" prefWidth="100.0" text="redo"
+                                      textAlignment="CENTER">
                                  <font>
-                                    <Font size="15.0" />
+                                    <Font size="15.0"/>
                                  </font>
+                                 <graphic>
+                                    <FontAwesomeIconView glyphName="ROTATE_RIGHT" size="35"/>
+                                 </graphic>
                               </Button>
                            </children>
                         </VBox>
                      </children>
                   </HBox>
-                  <GridPane alignment="TOP_CENTER" prefHeight="143.0" prefWidth="781.0" style="-fx-background-color: #F3F3F3; -fx-background-radius: 10px 10px 10px 10px;">
-                    <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
+                  <GridPane alignment="TOP_CENTER" prefHeight="143.0" prefWidth="781.0"
+                            style="-fx-border-color: DEE2E6; -fx-border-radius: 10px;">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                     </rowConstraints>
                      <children>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
                            <children>
@@ -146,51 +161,49 @@
                         </HBox>
                      </children>
                   </GridPane>
-                  <VBox prefHeight="143.0" prefWidth="123.0">
+                  <VBox prefHeight="141.0" prefWidth="167.0">
                      <children>
-                        <CheckBox mnemonicParsing="false" prefHeight="47.0" prefWidth="123.0" text="CheckBox" />
-                        <ChoiceBox prefHeight="36.0" prefWidth="123.0" />
+                        <CheckBox mnemonicParsing="false" prefHeight="47.0" prefWidth="123.0" text="Check"/>
+                        <ChoiceBox prefHeight="36.0" prefWidth="123.0"/>
                      </children>
                   </VBox>
-                  <VBox prefHeight="143.0" prefWidth="137.0">
+                  <VBox alignment="TOP_CENTER" prefHeight="141.0" prefWidth="129.0">
                      <children>
-                        <HBox prefHeight="55.0" prefWidth="137.0">
+                        <HBox prefHeight="42.0" prefWidth="137.0">
                            <children>
-                              <Label prefHeight="51.0" prefWidth="117.0" text="Foreground" />
-                              <ColorPicker fx:id="selectColor1" prefHeight="51.0" prefWidth="92.0" promptText="Select color" style="-fx-background-color: transparent;">
+                              <Label prefHeight="51.0" prefWidth="117.0" text="Foreground"/>
+                              <ColorPicker fx:id="foregroundColor" prefHeight="51.0" prefWidth="92.0"
+                                           promptText="Select color" style="-fx-background-color: transparent;">
                                  <value>
-                                    <Color />
+                                    <Color/>
                                  </value>
                               </ColorPicker>
                            </children>
                         </HBox>
-                        <HBox prefHeight="55.0" prefWidth="137.0">
+                        <HBox prefHeight="36.0" prefWidth="137.0">
                            <children>
-                              <Label prefHeight="51.0" prefWidth="117.0" text="Background" />
-                              <ColorPicker fx:id="selectColor11" prefHeight="55.0" prefWidth="92.0" promptText="Select color" style="-fx-background-color: transparent;">
+                              <Label prefHeight="51.0" prefWidth="117.0" text="Background"/>
+                              <ColorPicker fx:id="selectColor11" prefHeight="55.0" prefWidth="92.0"
+                                           promptText="Select color" style="-fx-background-color: transparent;">
                                  <value>
-                                    <Color />
+                                    <Color/>
                                  </value>
                               </ColorPicker>
                            </children>
                         </HBox>
-                        <Slider fx:id="thinkPen1" blockIncrement="1.0" majorTickUnit="2.0" max="10.0" minorTickCount="1" prefHeight="33.0" prefWidth="153.0" showTickLabels="true" value="5.0" />
+                        <Slider fx:id="thinkPen1" blockIncrement="1.0" majorTickUnit="2.0" max="10.0" minorTickCount="1"
+                                prefHeight="53.0" prefWidth="154.0" showTickLabels="true" showTickMarks="true"
+                                value="5.0"/>
                      </children>
                   </VBox>
                </children>
-               <effect>
-                  <InnerShadow blurType="GAUSSIAN" height="1.0" offsetX="-3.0" offsetY="-3.0" radius="0.0" width="0.0">
-                     <color>
-                        <Color opacity="0.49808427691459656" />
-                     </color>
-                  </InnerShadow>
-               </effect>
             </HBox>
          </children>
       </GridPane>
    </top>
    <center>
-      <StackPane prefHeight="663.0" prefWidth="1352.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+      <StackPane prefHeight="619.0" prefWidth="1342.0" style="-fx-background-color: F8F9FA; -fx-border-color: DEE2E6;"
+                 BorderPane.alignment="CENTER">
          <children>
             <Canvas fx:id="canvas" height="680.0" onMouseDragged="#setOnMouseDragged"
                     onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited"
@@ -201,7 +214,7 @@
             </Canvas>
          </children>
          <BorderPane.margin>
-            <Insets bottom="10.0" left="5.0" right="5.0" top="20.0" />
+            <Insets bottom="10.0" left="5.0" right="5.0" top="20.0"/>
          </BorderPane.margin>
       </StackPane>
    </center>
