@@ -61,11 +61,11 @@ public class PainterController implements Initializable {
 
     public void setOnMousePressed(MouseEvent mouseEvent) {
         if (btPen.isSelected()) {
-            canvas.setCursor(new ImageCursor(new Image(getClass().getResourceAsStream("/icons/pen.png"))));
+            setImageCursor("pen");
             drawOnMousePressed(Color.BLACK, 1, mouseEvent.getX(), mouseEvent.getY());
         }
         if (btErase.isSelected()) {
-            canvas.setCursor(new ImageCursor(new Image(getClass().getResourceAsStream("/icons/erase.png"))));
+            setImageCursor("erase");
             drawOnMousePressed(Color.WHITE, 10, mouseEvent.getX(), mouseEvent.getY());
         }
     }
@@ -94,5 +94,26 @@ public class PainterController implements Initializable {
         gc.lineTo(x, y + 20);
         gc.stroke();
         gc.closePath();
+    }
+
+    public void setOnMouseEntered(MouseEvent mouseEvent) {
+        if (btPen.isSelected()) {
+            setImageCursor("pen");
+        }
+        if (btErase.isSelected()) {
+            setImageCursor("erase");
+        }
+    }
+
+    public void setOnMouseExited(MouseEvent mouseEvent) {
+        setImageCursor("default");
+    }
+
+    public void setImageCursor(String name) {
+        if (name.equals("default")) {
+            canvas.setCursor(Cursor.DEFAULT);
+        } else {
+            canvas.setCursor(new ImageCursor(new Image(getClass().getResourceAsStream("/icons/" + name + ".png"))));
+        }
     }
 }

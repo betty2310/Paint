@@ -1,27 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.fontawesome.*?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.Cursor?>
 <?import javafx.scene.canvas.Canvas?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
-<?import javafx.scene.control.ChoiceBox?>
-<?import javafx.scene.control.ColorPicker?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Slider?>
-<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.effect.InnerShadow?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.paint.Color?>
-<?import javafx.scene.text.Font?>
-
+<?import javafx.scene.text.*?>
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1368.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="painter.PainterController">
     <padding>
         <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
@@ -205,9 +192,11 @@
    <center>
       <StackPane prefHeight="663.0" prefWidth="1352.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <children>
-            <Canvas fx:id="canvas" height="680.0" onMouseDragged="#setOnMouseDragged" onMousePressed="#setOnMousePressed" onMouseReleased="#setOnMouseReleased" width="1331.0">
+            <Canvas fx:id="canvas" height="680.0" onMouseDragged="#setOnMouseDragged"
+                    onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited"
+                    onMousePressed="#setOnMousePressed" onMouseReleased="#setOnMouseReleased" width="1331.0">
                <StackPane.margin>
-                  <Insets />
+                  <Insets/>
                </StackPane.margin>
             </Canvas>
          </children>
