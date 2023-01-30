@@ -24,7 +24,6 @@ public class Painter  extends Application {
                 var dockIcon = defaultToolkit.getImage(getClass().getResource("/images/app.png"));
                 taskbar.setIconImage(dockIcon);
             }
-
         }
         stage.setTitle("Painter");
         stage.setScene(scene);

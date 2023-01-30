@@ -8,8 +8,8 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.*?>
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0"
-            prefWidth="1300.0" style="-fx-background-color: E9ECEF;" stylesheets="@../app.css"
+<BorderPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="800.0" prefWidth="1300.0" style="-fx-background-color: E9ECEF;" stylesheets="@../app.css"
             xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="painter.PainterController">
    <padding>
@@ -28,7 +28,8 @@
          <children>
             <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
                <children>
-                  <Button fx:id="btSave" mnemonicParsing="false" prefHeight="31.0" prefWidth="77.0" text="Save">
+                  <Button fx:id="btSave" mnemonicParsing="false" onAction="#saveToFile" prefHeight="31.0"
+                          prefWidth="77.0" text="Save">
                      <font>
                         <Font size="16.0"/>
                      </font>

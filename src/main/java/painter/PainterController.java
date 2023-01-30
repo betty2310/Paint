@@ -1,5 +1,6 @@
 package painter;
 
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
@@ -10,9 +11,17 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
+import javafx.scene.image.WritableImage;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
+import javax.imageio.ImageIO;
+import java.awt.image.RenderedImage;
+import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -21,6 +30,7 @@ public class PainterController implements Initializable {
     public ToggleButton btPen;
     public ToggleButton btErase;
     public ColorPicker foregroundColor;
+    public BorderPane pane;
     private GraphicsContext gc;
     public Button btSave;
     public Button btOpen;
@@ -123,5 +133,26 @@ public class PainterController implements Initializable {
         } else {
             canvas.setCursor(new ImageCursor(new Image(getClass().getResourceAsStream("/icons/" + name + ".png"))));
         }
+    }
+
+    public void saveToFile(ActionEvent actionEvent) {
+        FileChooser save = new FileChooser();
+        save.setTitle("Save file");
+        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("PNG files", "*.png");
+        save.getExtensionFilters().add(extFilter);
+
+        Stage stage = (Stage) pane.getScene().getWindow();
+        File file = save.showSaveDialog(stage);
+        if (file != null) {
+            WritableImage writableImage = new WritableImage(1271, 583);
+            canvas.snapshot(null, writableImage);
+            RenderedImage renderedImage = SwingFXUtils.fromFXImage(writableImage, null);
+            try {
+                ImageIO.write(renderedImage, "png", file);
+            } catch (IOException e) {
+                System.out.println("Error!");
+            }
+        }
+
     }
 }
