@@ -76,7 +76,7 @@
                   <HBox prefHeight="143.0" prefWidth="203.0" spacing="5.0">
                      <children>
                         <Button fx:id="btClear" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false"
-                                onAction="#clearCanvas" prefHeight="147.0" prefWidth="101.0" text="clear"
+                                onAction="#clearCanvas" prefHeight="147.0" prefWidth="101.0" text="Clear"
                                 textAlignment="JUSTIFY">
                            <graphic>
                               <FontAwesomeIconView fill="#fc0000" glyphName="TIMES" size="50"
@@ -93,7 +93,7 @@
                         <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0">
                            <children>
                               <Button fx:id="btUndo" contentDisplay="TOP" mnemonicParsing="false" onAction="#undoCanvas"
-                                      prefHeight="75.0" prefWidth="100.0" text="undo">
+                                      prefHeight="75.0" prefWidth="100.0" text="Undo">
                                  <graphic>
                                     <FontAwesomeIconView glyphName="UNDO" size="35"/>
                                  </graphic>
@@ -102,7 +102,7 @@
                                  </font>
                               </Button>
                               <Button fx:id="btRedo" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false"
-                                      onAction="#redoCanvas" prefHeight="56.0" prefWidth="100.0" text="redo"
+                                      onAction="#redoCanvas" prefHeight="56.0" prefWidth="100.0" text="Redo"
                                       textAlignment="CENTER">
                                  <font>
                                     <Font size="15.0"/>
@@ -130,29 +130,32 @@
                      <children>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
                            <children>
-                              <ToggleButton fx:id="btPen" graphicTextGap="10.0" mnemonicParsing="false" onAction="#togglePen" prefHeight="42.0" prefWidth="145.0" text="pen">
+                              <ToggleButton fx:id="btPen" graphicTextGap="10.0" mnemonicParsing="false"
+                                            onAction="#togglePen" prefHeight="42.0" prefWidth="145.0" text="Pen">
                                  <graphic>
-                                    <FontAwesomeIconView glyphName="PENCIL" size="20" />
+                                    <FontAwesomeIconView glyphName="PENCIL" size="20"/>
                                  </graphic>
                                  <cursor>
-                                    <Cursor fx:constant="HAND" />
+                                    <Cursor fx:constant="HAND"/>
                                  </cursor>
                                  <font>
-                                    <Font size="18.0" />
-                                 </font></ToggleButton>
+                                    <Font size="18.0"/>
+                                 </font>
+                              </ToggleButton>
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <ToggleButton fx:id="btErase" graphicTextGap="10.0" mnemonicParsing="false" onAction="#toggleErase" prefHeight="42.0" prefWidth="145.0" text="erase">
+                              <ToggleButton fx:id="btErase" graphicTextGap="10.0" mnemonicParsing="false"
+                                            onAction="#toggleErase" prefHeight="42.0" prefWidth="145.0" text="Erase">
                                  <graphic>
-                                    <FontAwesomeIconView glyphName="ERASER" size="20" />
+                                    <FontAwesomeIconView glyphName="ERASER" size="20"/>
                                  </graphic>
                                  <cursor>
-                                    <Cursor fx:constant="HAND" />
+                                    <Cursor fx:constant="HAND"/>
                                  </cursor>
                                  <font>
-                                    <Font size="18.0" />
+                                    <Font size="18.0"/>
                                  </font>
                               </ToggleButton>
                            </children>
@@ -189,7 +192,7 @@
                               </ColorPicker>
                            </children>
                         </HBox>
-                        <Slider fx:id="thinkPen1" blockIncrement="1.0" majorTickUnit="2.0" max="10.0" minorTickCount="1"
+                        <Slider fx:id="thick" blockIncrement="1.0" majorTickUnit="2.0" max="10.0" minorTickCount="1"
                                 prefHeight="50.0" prefWidth="129.0" showTickLabels="true" showTickMarks="true"
                                 value="5.0"/>
                      </children>

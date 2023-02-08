@@ -8,6 +8,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.control.ColorPicker;
+import javafx.scene.control.Slider;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
@@ -21,6 +22,7 @@ public class PainterController implements Initializable {
     public ToggleButton btPen;
     public ToggleButton btErase;
     public ColorPicker foregroundColor;
+    public Slider thick;
     private GraphicsContext gc;
     public Button btSave;
     public Button btOpen;
@@ -34,6 +36,7 @@ public class PainterController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         gc = canvas.getGraphicsContext2D();
         gc.setLineWidth(0);
+        thick.setValue(1);
         btPen.setSelected(false);
         btErase.setSelected(false);
     }
@@ -66,11 +69,11 @@ public class PainterController implements Initializable {
     public void setOnMousePressed(MouseEvent mouseEvent) {
         if (btPen.isSelected()) {
             setImageCursor("pen");
-            drawOnMousePressed(foregroundColor.getValue(), 1, mouseEvent.getX(), mouseEvent.getY());
+            drawOnMousePressed(foregroundColor.getValue(), mouseEvent.getX(), mouseEvent.getY());
         }
         if (btErase.isSelected()) {
             setImageCursor("erase");
-            drawOnMousePressed(Color.WHITE, 10, mouseEvent.getX(), mouseEvent.getY());
+            drawOnMousePressed(Color.WHITE, mouseEvent.getX(), mouseEvent.getY());
         }
     }
 
@@ -86,7 +89,8 @@ public class PainterController implements Initializable {
         }
     }
 
-    public void drawOnMousePressed(Color color, double width, double x, double y) {
+    public void drawOnMousePressed(Color color, double x, double y) {
+        double width = thick.getValue();
         gc.setStroke(color);
         gc.setLineWidth(width);
         gc.beginPath();
